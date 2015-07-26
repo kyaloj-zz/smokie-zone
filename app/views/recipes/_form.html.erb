@@ -1,52 +1,83 @@
-<%= form_for(@recipe) do |f| %>
-  <% if @recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<%= form_for @recipe, :html => { :class => "form-horizontal recipe" } do |f| %>
 
-      <ul>
-      <% @recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @recipe.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @recipe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:title) %>
   </div>
-  <div class="field">
-    <%= f.label :cooking_time %><br>
-    <%= f.text_field :cooking_time %>
+  <div class="form-group">
+    <%= f.label :cooking_time, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :cooking_time, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cooking_time) %>
   </div>
-  <div class="field">
-    <%= f.label :difficulty_level %><br>
-   <%=f.select :difficulty_level, Recipe::DIFFICULTY,{} ,
-:class => "form-control"%>
+  <div class="form-group">
+    <%= f.label :difficulty_level, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :difficulty_level, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:difficulty_level) %>
   </div>
-  <div class="field">
-    <%= f.label :food_type_id %><br>
-    <%=f.select(:food_type_id, options_from_collection_for_select(FoodType.all, :id, :name),{:prompt => 'Please Choose'}, :class => "form-control")%>
+  <div class="form-group">
+    <%= f.label :food_type_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :food_type_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:food_type_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :food_preference_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :food_preference_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:food_preference_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cuisine_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :cuisine_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cuisine_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ingredients, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ingredients, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ingredients) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :procedure, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :procedure, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:procedure) %>
+  </div>
 
-   
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                recipes_path, :class => 'btn btn-default' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :food_preference_id %><br>
-   <%=f.select(:food_preference_id, options_from_collection_for_select(FoodPreference.all, :id, :name),{:prompt => 'Please Choose'}, :class => "form-control")%>
-  </div>
-  <div class="field">
-    <%= f.label :cuisine_id %><br>
-    <%=f.select(:cuisine_id, options_from_collection_for_select(Cuisine.all, :id, :name),{:prompt => 'Please Choose'}, :class => "form-control")%>
-  </div>
-  <div class="field">
-    <%= f.label :ingredients %><br>
-    <%= f.text_area :ingredients %>
-  </div>
-  <div class="field">
-    <%= f.label :procedure %><br>
-    <%= f.text_area :procedure %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

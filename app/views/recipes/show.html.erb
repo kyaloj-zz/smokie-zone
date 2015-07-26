@@ -1,44 +1,33 @@
+<%- model_class = Recipe -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @recipe.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cooking_time) %>:</strong></dt>
+  <dd><%= @recipe.cooking_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:difficulty_level) %>:</strong></dt>
+  <dd><%= @recipe.difficulty_level %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:food_type_id) %>:</strong></dt>
+  <dd><%= @recipe.food_type_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:food_preference_id) %>:</strong></dt>
+  <dd><%= @recipe.food_preference_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cuisine_id) %>:</strong></dt>
+  <dd><%= @recipe.cuisine_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ingredients) %>:</strong></dt>
+  <dd><%= @recipe.ingredients %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:procedure) %>:</strong></dt>
+  <dd><%= @recipe.procedure %></dd>
+</dl>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
-
-<p>
-  <strong>Cooking time:</strong>
-  <%= @recipe.cooking_time %>
-</p>
-
-<p>
-  <strong>Difficulty level:</strong>
-  <%= @recipe.difficulty_level %>
-</p>
-
-<p>
-  <strong>Food type:</strong>
-  <%= @recipe.food_type_id %>
-</p>
-
-<p>
-  <strong>Food preference:</strong>
-  <%= @recipe.food_preference_id %>
-</p>
-
-<p>
-  <strong>Cuisine:</strong>
-  <%= @recipe.cuisine_id %>
-</p>
-
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
-</p>
-
-<p>
-  <strong>Procedure:</strong>
-  <%= @recipe.procedure %>
-</p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              recipes_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_recipe_path(@recipe), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              recipe_path(@recipe),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
