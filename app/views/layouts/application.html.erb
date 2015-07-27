@@ -8,64 +8,17 @@
 </head>
 <body>
 
-<div class="navbar-fixed">
-    <nav>
-     <div class="container">
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <% if user_signed_in? %>
-		  Logged in as <strong><%= current_user.email %></strong>.
-		  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'waves-effect waves-light btn-large' %> |
-		  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'waves-effect waves-light btn-large'  %>
-		<% else %>
-		  <%= link_to "Sign up", new_user_registration_path, :class => 'waves-effect waves-light btn-large'  %> |
-		  <%= link_to "Login", new_user_session_path, :class => 'waves-effect waves-light btn-large'  %>
-		<% end %>
-        </ul>
-      </div>
-      </div>
-    </nav>
-  </div>
+
 <div class="container">
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 </div>
 
-
- <div class="container">
-   <div class="row">
-      <div class="col s12 m3">
-        <div class="row">
-          <div class="panel-heading">Food Preferences
-          </div>
-          <% @food_preferences.each do |fp| %>
-          <p><%= fp.name%></p>
-          <%end%>
-          </div>
-     
-      <div class="row">
-          <div class="panel-heading">Food Type
-          </div>
-          <% @food_types.each do |ft| %>
-          <p><%= ft.name%></p>
-          <%end%>
-      </div>
-      <div class="row">
-          <div class="panel-heading">Cuisine
-          </div>
-          <% @cuisines.each do |c| %>
-          <p><%= c.name%></p>
-          <%end%>
-          
-      </div>
-     </div> 
-      <div class="col s12 m9"> 
+    
+ 
        
          <%= yield %>        
-       </div>
-     </div>
-   </div>        
+             
 
 </body>
 </html>
