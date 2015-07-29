@@ -5,6 +5,7 @@ class HomesController < ApplicationController
   # GET /homes.json
   def index
     @homes = Home.all
+    @recipes = Recipe.all
   end
 
   # GET /homes/1
