@@ -11,3 +11,36 @@
    color: white;
    
 }
+
+.recipes_header{
+ background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6) ), url('/food4.jpg');
+   
+   background-size:cover;
+   background-repeat: no-repeat;
+   color: white;
+   min-height: 200px;
+   vertical-align:middle;
+   
+}
+
+.recipes_header h3{
+  
+   vertical-align:middle !important;
+   margin: 10% 0;
+   text-align: center;
+}
+
+.card .card-content {
+    min-height: 50px !important;
+    color: #FC5F00 !important;
+}
+
+.card-image img {
+    
+    height: 100%;
+}
+
+p.links a{
+	color: black !important;
+}
+
