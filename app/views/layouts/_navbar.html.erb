@@ -4,10 +4,10 @@
     <nav>
      <div class="container">
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">SMOKIEZONE</a>
-
+        <a  class="brand-logo">SMOKIEZONE</a>
+        
         <ul class="right hide-on-med-and-down">
-
+       <%= link_to "Home", homes_path, :class => 'waves-effect waves-light btn-flat' %>
         <%= link_to "Recipes", recipes_path, :class => 'waves-effect waves-light btn-flat' %>
           <%= link_to 'New recipe?', new_recipe_path, :class => 'waves-effect waves-light btn-flat red' %> |
           <% if user_signed_in? %>
