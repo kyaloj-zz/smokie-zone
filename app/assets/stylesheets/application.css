@@ -57,3 +57,8 @@ nav ul {
 .btn-flat{
 	color: white !important;
 }
+
+
+.slider .slides li .caption {
+    top: 30%;
+}
