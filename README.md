@@ -1,3 +1,3 @@
 # smokie-zone
 
-A tutorial for using mysql on rails app
+A rails web app for sharing recipes
