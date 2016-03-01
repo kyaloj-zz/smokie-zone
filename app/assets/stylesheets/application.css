@@ -63,5 +63,5 @@ nav ul {
     top: 30%;
 }
 
-html{font-size:110%;} 
-@media(min-width:60em){html{font-size: 90%;}
+html{font-size:100%;} 
+@media(min-width:60em){html{font-size: 100%}}
