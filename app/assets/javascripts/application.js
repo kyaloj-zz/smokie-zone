@@ -21,4 +21,5 @@ $(document).ready(function(){
       	full_height: true,
       	full_height: true
       });
+      $(".button-collapse").sideNav()
     });
