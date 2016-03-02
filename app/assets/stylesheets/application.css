@@ -65,3 +65,7 @@ nav ul {
 
 html{font-size:100%;} 
 @media(min-width:60em){html{font-size: 100%}}
+
+.slider .indicators .indicator-item.active {
+    background-color: #FC5F00;
+}
