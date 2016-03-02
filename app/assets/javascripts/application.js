@@ -15,11 +15,3 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function(){
-      $('.slider').slider({
-      	full_height: true,
-      	full_height: true
-      });
-      $(".button-collapse").sideNav()
-    });
